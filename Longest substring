@@ -1,0 +1,20 @@
+def LengthofLongestsubstring(s:str)->int:
+    notebook={}
+    max_len=0
+    start=0
+    max_start=0
+    max_end=0
+    for end,char in enumerate(s):
+        if char in notebook and notebook[char]>=start:
+            start=notebook[char]+1
+        notebook[char]=end
+        if end-start+1 > max_len:
+            max_len=end-start+1
+            max_start=start
+            max_end=end
+    longest_string=s[max_start:max_end+1]
+    print(f"longest substring is {longest_string}")
+    print(f"size is {max_len}")
+string=str(input("Enter your longest word -> "))
+LengthofLongestsubstring(string)
+    
