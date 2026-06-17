@@ -1,0 +1,25 @@
+def decompress(s: str) -> str:
+    if not s:
+        return ""
+        
+    result = []
+    i = 0
+    n = len(s)
+    
+    while i < n:
+        char = s[i]
+        i += 1
+        num_str = ""
+        
+        while i < n and s[i].isdigit():
+            num_str += s[i]
+            i += 1
+            
+        count = int(num_str) if num_str else 1
+        result.append(char * count)
+        
+    return "".join(result)
+
+print(decompress("A3C3B2D"))  
+print(decompress("X3YZ4"))   
+print(decompress("ABC"))      
